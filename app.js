@@ -56,6 +56,7 @@ function getTasks() {
 function addTask(e) {
   if (taskInput.value === "") {
     alert("请填写任务名称");
+    return;
   }
   // Create li element
   const li = document.createElement("li");
