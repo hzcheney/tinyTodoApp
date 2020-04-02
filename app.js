@@ -1,93 +1,8 @@
-// document.getElementById()
-
-// console.log(document.getElementById('task-title'));
-
-// Get things from the element
-// console.log(document.getElementById('task-title').id);
-// console.log(document.getElementById('task-title').className);
-
-// const taskTitle = document.getElementById('task-title');
-
-// Change styling
-// taskTitle.style.background = 'green';
-// taskTitle.style.color = '#fff';
-// taskTitle.style.padding = '5px';
-// taskTitle.style.display = 'none';
-
-// Change content
-// taskTitle.textContent = 'Task List';
-// taskTitle.innerText = 'My Tasks';
-// taskTitle.innerHTML = '<span style="color:red">Task List</span>';
-
-// document.querySelector()
-
-// console.log(document.querySelector('#task-title'));
-// console.log(document.querySelector('.card-title'));
-// console.log(document.querySelector('h5'));
-
-// document.querySelector('li').style.color = 'red';
-// document.querySelector('ul li').style.color = 'blue';
-
-// document.querySelector('li:last-child').style.color = 'red';
-// document.querySelector('li:nth-child(3)').style.color = 'yellow';
-// document.querySelector('li:nth-child(4)').textContent = 'Hello World';
-// document.querySelector('li:nth-child(odd)').style.background = '#ccc';
-// document.querySelector('li:nth-child(even)').style.background = '#f4f4f4';
-
-// document.getElementsByTagName
-// let lis = document.getElementsByTagName('li');
-
-// Convert HTML Collection into array
-// lis = Array.from(lis);
-
-// lis.reverse();
-
-// lis.forEach(function(li, index) {
-// console.log(li.className);
-// li.textContent = `${index}: Hello`;
-//     li.textContent = `${index}: hello`;
-// });
-
-// document.querySelectorAll
-// const items = document.querySelectorAll('ul.collection li.collection-item');
-
-// items.forEach(function(item, index){
-//     item.textContent = `${index}: Hello`;
-// });
-
-// const liOdd = document.querySelectorAll('li:nth-child(odd');
-// const liEven = document.querySelectorAll('li:nth-child(even');
-
-// liOdd.forEach(function(li,index){
-//     li.style.background = '#ccc';
-// });
-
-// for(let i = 0; i < liEven.length; i++){
-//     liEven[i].style.background = '#f4f4f4';
-//   }
-
-// add new item
-// const li = document.createElement("li");
-
-// li.className = "collection-item";
-
-// li.id = "new-item";
-
-// li.setAttribute("title", "New Item");
-
-// li.appendChild(document.createTextNode("hello world"));
-// const link = document.createElement("a");
-// link.className = "delete-item secondary-content";
-
-// link.innerHTML = '<i class="fa fa-remove"></i>';
-// li.appendChild(link);
-// document.querySelector('ul.collection').appendChild(li);
-
 // Define Ui Vars
-const form      = document.querySelector("#task-form");
-const taskList  = document.querySelector(".collection");
-const clearBtn  = document.querySelector(".clear-tasks");
-const filter    = document.querySelector("#filter");
+const form = document.querySelector("#task-form");
+const taskList = document.querySelector(".collection");
+const clearBtn = document.querySelector(".clear-tasks");
+const filter = document.querySelector("#filter");
 const taskInput = document.querySelector("#task");
 
 // Load all event Listeners
@@ -140,7 +55,7 @@ function getTasks() {
 // Add Task
 function addTask(e) {
   if (taskInput.value === "") {
-    alert("Add a task");
+    alert("请填写任务名称");
   }
   // Create li element
   const li = document.createElement("li");
@@ -186,7 +101,7 @@ function storeTaskInLocalStorage(task) {
 function removeTask(e) {
   if (e.target.parentElement.classList.contains("delete-item")) {
     console.log(e.target);
-    if (confirm("Are You Sure?")) {
+    if (confirm("确定删除吗?")) {
       e.target.parentElement.parentElement.remove();
 
       // Remove from ls
